@@ -8,6 +8,8 @@
 This browser based web application to ...
 * My name is Tim and I am excited to start the project.
 
+* Hi my name is Aron and this it my line
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
@@ -17,6 +19,7 @@ Technologies used for this project:
 	
 ## Content
 Content of the project folder:
+
 
 ```
  Top level of project folder: 
