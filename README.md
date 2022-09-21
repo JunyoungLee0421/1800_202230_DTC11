@@ -1,15 +1,16 @@
 ## My Web Application (Add your Title here)
 
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Contents](#content)
+- [My Web Application (Add your Title here)](#my-web-application-add-your-title-here)
+- [General Info](#general-info)
+- [Technologies](#technologies)
+- [Content](#content)
 
 ## General Info
 This browser based web application to ...
 * My name is Tim and I am excited to start the project.
 
 * Hi my name is Aron and this it my line
-	
+* Hi my name is James and this is my line
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
