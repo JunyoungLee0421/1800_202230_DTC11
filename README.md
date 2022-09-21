@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Aron and this it my line
 	
 ## Technologies
 Technologies used for this project:
@@ -16,6 +17,7 @@ Technologies used for this project:
 	
 ## Content
 Content of the project folder:
+
 
 ```
  Top level of project folder: 
