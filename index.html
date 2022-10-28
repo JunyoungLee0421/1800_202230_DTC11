@@ -10,14 +10,6 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script>
-        function loadSkeleton() {
-            console.log($('#navbarPlaceholder').load('./text/navbar.html'));
-            console.log($('#footerPlaceholder').load('./text/footer.html'));
-        }
-        loadSkeleton();  //invoke the function
-
-    </script>
 
 
 
@@ -49,92 +41,19 @@
 
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="container">
+    <nav class="content_holder"></nav>
+    <nav class="content_holder"></nav>
+    <nav class="content_holder"></nav>
+   
 
-        <!-- gym card -->
+    <nav id="footer_bar"></nav>
 
-        <div class="gym_card">
-            <div class="image_container">
-                <img class="card-img-top" src="./images/place_holder.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Good Life Fitness</h5>
-                <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, eveniet?
-
-                </p>
-                <p class="stars">
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star_outline</i>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        0.5 km</small>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        $16 / mo</small>
-                </p>
-
-            </div>
-        </div>
-        <div class="gym_card">
-            <img class="card-img-top" src="./images/place_holder.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Good Life Fitness</h5>
-                <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, eveniet?
-
-                </p>
-                <p class="stars">
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star_outline</i>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        0.5 km</small>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        $16 / mo</small>
-                </p>
-
-            </div>
-        </div>
-        <div class="gym_card">
-            <img class="card-img-top" src="./images/place_holder.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Good Life Fitness</h5>
-                <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, eveniet?
-
-                </p>
-                <p class="stars">
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star_outline</i>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        0.5 km</small>
-                </p>
-                <p class="card_info"><small class="text-muted">
-                        $16 / mo</small>
-                </p>
-
-            </div>
-        </div>
-
-        <nav id="footer_bar"></nav>
-
-        <!---------------------------------------------->
-        <!-- Your own JavaScript functions go here    -->
-        <!---------------------------------------------->
-        <!-- Link to scripts of your own -->
-        <script src="./scripts/skeleton.js"></script>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/cards.js"></script>
 
 </body>
 

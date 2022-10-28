@@ -1,3 +1,12 @@
+/* header and footer */
+
+#navbarPlaceholder::after {
+    clear: both;
+}
+#footer_bar::before {
+    clear: both;
+}
+
 .stars {
     display: inline-block;
     float: right;
@@ -27,4 +36,8 @@
     border-radius: 10px;
 }
 
-/* google stars */
+/* a links */
+
+a:hover {
+    color: black;
+}
