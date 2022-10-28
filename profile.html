@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <style>
+        #content {
+            display: block;
+            width: 100%;
+        }
+
+        #profile_pic,
+        .clickables {
+            display: flex;
+            justify-content: center;
+        }
+
+        #profile_pic img {
+            border-radius: 100%;
+            margin: 30px 0px;
+            width: 200px;
+            height: 200px;
+        }
+
+        #buttons::before {
+            clear: both;
+        }
+
+        .clickables ul {
+            list-style: none;
+            display: block;
+            padding: 0px 0px;
+            background-color: blanchedalmond;
+        }
+        ul a {
+            text-decoration: none;
+            color: black;
+        }
+         ul a:hover {
+            color: pink;
+        }
+        li {
+            margin: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbarPlaceholder"></nav>
+
+    <div id="content">
+        <div id="profile_pic">
+            <img src="./images/images.jpg">
+        </div>
+        <hr>
+        <div id="buttons">
+            <div class="clickables">
+                <ul>
+                   <a href=""> <li>Settings</li></a>
+                   <a href=""> <li>About</li></a>
+                   <a href=""> <li>FAQ</li></a>
+                   <a href=""> <li>Links</li></a>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <nav id="footer_bar"></nav>
+
+    <!-- Java script for external navbar -->
+    <script src="./scripts/skeleton.js"></script>
+
+
+
+</body>
+
+</html>
