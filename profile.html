@@ -42,19 +42,32 @@
 
         .clickables ul {
             list-style: none;
-            display: block;
-            padding: 0px 0px;
-            background-color: blanchedalmond;
+            width: 80%;
         }
+
         ul a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
             text-decoration: none;
             color: black;
+
         }
-         ul a:hover {
+
+        ul a:hover {
             color: pink;
         }
-        li {
+
+        ul li {
             margin: 10px 10px;
+            padding: 10px 10px;
+            width: 100%;
+
+            text-align: center;
+            background-color: bisque;
+
         }
     </style>
 </head>
@@ -70,11 +83,18 @@
         <div id="buttons">
             <div class="clickables">
                 <ul>
-                   <a href=""> <li>Settings</li></a>
-                   <a href=""> <li>About</li></a>
-                   <a href=""> <li>FAQ</li></a>
-                   <a href=""> <li>Links</li></a>
-                   
+                    <a href="./login.html">
+                        <li>Login</li>
+                    <!-- </a> // may include later
+                    <a href="">
+                        <li>About</li>
+                    </a>
+                    <a href="">
+                        <li>FAQ</li>
+                    </a>
+                    <a href="">
+                        <li>Links</li>
+                    </a> -->
                 </ul>
             </div>
         </div>
