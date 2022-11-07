@@ -31,26 +31,59 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
 </head>
 
 <body>
     <!-- header -->
 
     <nav id="navbarPlaceholder"></nav>
+    <div class="container">
+        <div class="container">
+            <div id="gyms-go-here" class="row row-cols-auto">
+                <!-- Here is container for cards  -->
+                <template id="GymCardTemplate">
+                    <div class="card" style="width: 100%; border-radius: 20px; margin: 10px 0px">
+                        <img class="card-image card-img-top" src=" ..." alt="..." style="margin: 5px 0px">
+                       
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                            <img class="stars" src="" alt="" style="width: 30%"></p>
+                            <p class="distance" style="font-size:small; color: gray; margin: 0px 0px">
+                                0.5 km
+                            </p>
+                            <p class="price" style="font-size:small; color: gray;">
+                                $16 / mo
+                            </p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <!-- <nav class="content_holder"></nav>
+    <nav class="content_holder"></nav>
+    <nav class="content_holder"></nav> -->
 
-    <nav class="content_holder"></nav>
-    <nav class="content_holder"></nav>
-    <nav class="content_holder"></nav>
-   
-
+    
     <nav id="footer_bar"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI2.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/cards.js"></script>
+    <!-- <script src="./scripts/cards.js"></script> -->
+    <script src="./scripts/displaycards.js"></script>
+    
+
 
 </body>
 
