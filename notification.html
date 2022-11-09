@@ -21,20 +21,39 @@
 
     <!-- Google stylesheet -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 </head>
 
 <body>
 
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="notifications"></div>
-    <div class="notifications"></div>   
-    <div class="notifications"></div>
-    <div class="notifications"></div>
+    <div class="container">
+        <div class="container">
+            <div id="notifications-go-here" class="row row-cols-auto">
+                <!-- Here is container for cards  -->
+                <template id="NotificationCardTemplate">
+                    <div class="card" style="width: 100%; border-radius: 20px; margin: 10px 0px">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
 
     <nav id="footer_bar"></nav>
 
+    <script src="./scripts/firebaseAPI.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/notifications.js"></script>
     <script src="./scripts/notifications.js"></script>
 </body>
 
