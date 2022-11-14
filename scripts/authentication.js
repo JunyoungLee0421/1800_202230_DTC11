@@ -26,6 +26,7 @@ var uiConfig = {
           })
 
       } else {
+        changeButton(user)
         return true;
       }
       return false;
@@ -53,5 +54,10 @@ var uiConfig = {
   // Privacy policy url.
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
+
+function changeButton(user) {
+  // change the login button in the profile page
+  localStorage.setItem ('user', user);
+}
 
 ui.start('#firebaseui-auth-container', uiConfig);
