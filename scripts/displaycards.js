@@ -40,24 +40,23 @@ function displayCards(collection) {
             snap.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;        // get value of the "name" key
                 var details = doc.data().description;   // get value of the "description" key
-                var hikeID = doc.data().code;    //get unique ID to each hike to be used for fetching right image
+                var gymID = doc.data().code;    //get unique ID to each hike to be used for fetching right image
                 var distance_away = doc.data().distance;    //get value of distance
                 var rate = doc.data().rating;    //get rating for each gym
                 var price_point = doc.data().price;    //get price for each gym
                 let newcard = cardTemplate.content.cloneNode(true);
 
+                console.log(gymID)
+
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-image').src = `./images/${hikeID}.jpg`; //Example: NV01.jpg
-                newcard.querySelector('.stars').src = `./text/stars/${rate}.jpg`; 
-                newcard.querySelector('.distance').innerHTML = distance_away; 
-                newcard.querySelector('.price').innerHTML = price_point; 
-
-                //give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+                newcard.querySelector('.card-image').src = `./images/${gymID}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
+                newcard.querySelector('.distance').innerHTML = distance_away;
+                newcard.querySelector('.price').innerHTML = price_point;
+                newcard.querySelector('#details_btn').onclick = () => setGymData(gymID);
+      
 
                 //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -67,3 +66,7 @@ function displayCards(collection) {
 }
 
 displayCards("gyms");
+
+function setGymData (id) {
+    localStorage.setItem('gymID', id);
+}

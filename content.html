@@ -30,34 +30,49 @@
 <body>
     <nav id="navbarPlaceholder"></nav>
 
+    <div id="GymCardTemplate">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"
+            style="width: 100%; clear: both;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="" alt="First slide" id="image">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
+                </div>
+            </div>
 
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width: 100%; clear: both;">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="./images/Gym2.jpg" alt="First slide">
+            <div style="margin: 10px 10px">
+                <container>
+                    <h1 style="display: inline-flex; align-items: space-evenly;" id="name">test content</h1>
+                    <img sre="" style="display: flex; float: right;" id="rating">
+                    <p id="distance"></p>
+                    <p id="price"></p>
+                </container>
+                <p style="margin: 10px 0px" id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                    est
+                    fugit id
+                    earum atque eligendi repudiandae quia asperiores ad adipisci non in quis ullam facere sapiente
+                    voluptatum voluptate, praesentium voluptas.</p>
+                <div id="time" style="display: flex; justify-content: center;">
+                    <div>
+                        <embed type="text/html" src="./chart.html" width="500" height="200">
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Third slide">
-            </div>
-        </div>
-
-        <div  style="margin: 10px 10px">
-            <container>
-                <h1 style="display: inline-flex; align-items: space-evenly;" id="name">test content</h1>
-                <p style="display: flex; float: right;" id="rating">test </p>
-            </container>
-            <p style="margin: 10px 0px" id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam est fugit id
-                earum atque eligendi repudiandae quia asperiores ad adipisci non in quis ullam facere sapiente
-                voluptatum voluptate, praesentium voluptas.</p>
         </div>
     </div>
 
+
+
     <nav id="footer_bar"></nav>
 
+    <script src="./scripts/firebaseAPI.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/contentcard.js"></script>
 </body>
 
 </html>
