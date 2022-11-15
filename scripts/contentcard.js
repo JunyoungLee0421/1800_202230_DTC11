@@ -1,4 +1,4 @@
-let ID = localStorage.getItem("hikeID");
+let ID = localStorage.getItem("gymID");
 console.log(ID, 'test')
 
 function populate() {
