@@ -57,13 +57,56 @@
                     fugit id
                     earum atque eligendi repudiandae quia asperiores ad adipisci non in quis ullam facere sapiente
                     voluptatum voluptate, praesentium voluptas.</p>
-                <div id="time" style="display: flex; justify-content: center;">
+
+                <div id="reviews_container" style="display: block; justify-content: center;">
+                    <div class="container">
+                        <br>
+                        <h1>Review for <span id="name_2"></span></h1>
+                        <br>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Would you recommend this gym?</label>
+                                <select class="form-control" id="reccomend">
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                                <br>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">How was your experience?</label>
+                                    <select class="form-control" id="expereince">
+                                        <option>Good</option>
+                                        <option>Moderate</option>
+                                        <option>Poor</option>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"
+                                        style="display:block; clear: both; margin: 10px 0px">What did
+                                        you think of the trail?</label>
+                                    <textarea class="form-control" id="description" rows="5"
+                                        style="width: 80%;"></textarea>
+                                </div>
+                                <br>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-lg btn-primary pull-right"
+                                        onclick="writeReview()">Submit</button>
+                                </div>
+                        </form>
+
+
+                    </div>
+                </div>
+                <div id="time" style="display: flex; justify-content: center; margin: 10px 0px;">
                     <div>
                         <embed type="text/html" src="./chart.html" width="500" height="200">
                     </div>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 
 

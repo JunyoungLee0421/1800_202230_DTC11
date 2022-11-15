@@ -41,3 +41,7 @@
 a:hover {
     color: black;
 }
+
+#details_btn:hover{
+    transform: translateX(10px);
+}

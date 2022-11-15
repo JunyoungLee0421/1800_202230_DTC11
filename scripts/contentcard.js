@@ -21,9 +21,16 @@ function populate() {
                 document.querySelector('#rating').src = `./text/stars/${rate}.jpg`;
                 document.querySelector('#distance').innerHTML = distance_away;
                 document.querySelector('#price').innerHTML = price_point;
+                document.querySelector('#name_2').innerHTML = title;
+                // document.querySelector('button').onclick('clicked', writeReview())
+
+                
             })
         })
 
 }
-
 populate();
+
+// writeReview(){
+//     console.log('ready')
+// }
