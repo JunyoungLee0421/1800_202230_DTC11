@@ -15,22 +15,55 @@ function populate() {
                 var price_point = doc.data().price;    //get price for each gym
 
                 //update title and text and image
-                document.querySelector('#name').innerHTML = title;
+                document.querySelector('#gym_name').innerHTML = title;
                 document.querySelector('#details').innerHTML = details;
                 document.querySelector('#image').src = `./images/${gymPic}.jpg`; //Example: NV01.jpg
                 document.querySelector('#rating').src = `./text/stars/${rate}.jpg`;
                 document.querySelector('#distance').innerHTML = distance_away;
                 document.querySelector('#price').innerHTML = price_point;
                 document.querySelector('#name_2').innerHTML = title;
-                // document.querySelector('button').onclick('clicked', writeReview())
 
-                
+
             })
         })
 
 }
 populate();
 
-// writeReview(){
-//     console.log('ready')
-// }
+function writeReview() {
+    console.log('ready')
+    let Title = document.getElementById("gym_name").innerHTML.valueOf();
+    let Description = document.getElementById("description").value;
+    let reccomend = document.getElementById("reccomend").value;
+    let expereince = document.getElementById("experience").value;
+    var gymID = ID
+    console.log(Title, Description, reccomend, expereince, gymID);
+
+    // firebase.auth().onAuthStateChanged(user => {
+    //     if (user) {
+    //         var currentUser = db.collection("users").doc(user.uid)
+    //         var userID = user.uid;
+    //         //get the document for current user.
+    //         currentUser.get()
+    //             .then(userDoc => {
+    //                 var userEmail = userDoc.data().email;
+    var reviews_data = db.collection("Reviews");
+
+    reviews_data.add({
+        code: gymID,
+        title: Title,
+        description: Description,
+        recommend: reccomend,
+        experience: expereince,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        // }).then(() => {
+
+        //             })
+        //         })
+
+        // } else {
+        //     // No user is signed in.
+        // }
+    })
+    window.location.href = "index.html";
+}
