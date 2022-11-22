@@ -20,7 +20,7 @@ function displayCards(collection) {
                 testgymCard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
                 testgymCard.querySelector('.distance').innerHTML = distance_away;
                 testgymCard.querySelector('.price').innerHTML = price_point;
-                testgymCard.querySelector('#details_btn').onclick = setGymData(gymID);
+                testgymCard.querySelector('#details_btn').onclick = () => setGymData(gymID);
                 container.appendChild(testgymCard);
             })
 
