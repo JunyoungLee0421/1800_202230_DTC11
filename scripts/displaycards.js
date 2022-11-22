@@ -1,3 +1,4 @@
+var currentUser
 
 function displayCards(collection) {
     let GymCardTemplate = document.getElementById("GymCardTemplate");
@@ -33,3 +34,24 @@ displayCards("gyms");
 function setGymData(id) {
     localStorage.setItem('gymID', id);
 }
+
+function insertName() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if a user is signed in:
+        if (user) {
+            // Do something for the currently logged-in user here: 
+            console.log(user.uid);
+            console.log(user.displayName);
+            document.querySelector('#username').innerHTML = 'Hello ' + user.displayName
+
+            //method #1:  insert with html only
+            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
+            //method #2:  insert using jquery
+            // $("#name-goes-here").text(user_Name); //using jquery
+
+        } else {
+            document.querySelector('#username').innerHTML = null
+        }
+    });
+}
+insertName();

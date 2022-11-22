@@ -1,5 +1,5 @@
 let ID = localStorage.getItem("gymID");
-console.log(ID, 'test')
+
 
 function populate() {
 

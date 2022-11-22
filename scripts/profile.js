@@ -1,4 +1,4 @@
-var currentUser;
+var currentUser
 
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
@@ -13,7 +13,7 @@ function populateInfo() {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
                     var userSchool = userDoc.data().school;
-                    var userCity = userDoc.data().city;
+                    var userCity = userDoc.data().country;
                     var userEmail = userDoc.data().email;
 
                     //if the data fields are not empty, then write them in to the form.
@@ -23,15 +23,16 @@ function populateInfo() {
                     if (userSchool != null) {
                         document.getElementById("schoolInput").value = userSchool;
                     }
+                    if (userEmail != null) {
+                        document.getElementById("EmailInput").value = userEmail;
+                    }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
-                    }if (userEmail != null) {
-                        document.getElementById("cityInput").value = userEmail;
                     }
                 })
         } else {
             // No user is signed in.
-            console.log("No user is signed in");
+            window.location.replace("./profile.html");
         }
     });
 }
@@ -40,11 +41,12 @@ function populateInfo() {
 populateInfo();
 
 function editUserInfo() {
-    //Enable the form fields
+    console.log('works')
     document.getElementById('personalInfoFields').disabled = false;
 }
 
 function saveUserInfo() {
+    console.log('save')
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
     userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
     userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
@@ -53,11 +55,11 @@ function saveUserInfo() {
     currentUser.update({
         name: userName,
         school: userSchool,
-        city: userCity,
+        country: userCity,
         email: userEmail,
     })
         .then(() => {
-            console.log("Document successfully updated!");
+            window.alert("Your profile has been updated");
         })
 
     document.getElementById('personalInfoFields').disabled = true;
@@ -69,7 +71,7 @@ function insertName() {
             // Do something for the currently logged-in user here: 
             console.log(user.uid);
             console.log(user.displayName);
-            document.querySelector('#login').innerHTML = title;
+            document.querySelector('#login').innerHTML = user.displayName
 
             //method #1:  insert with html only
             //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
@@ -77,7 +79,8 @@ function insertName() {
             // $("#name-goes-here").text(user_Name); //using jquery
 
         } else {
-           console.log('no login')
+            console.log('no login')
         }
     });
 }
+insertName();
