@@ -47,7 +47,7 @@
                     <img class="d-block w-100" src="..." alt="Third slide">
                 </div>
             </div>
-
+            
             <div style="margin: 10px 10px">
                 <container>
                     <h1 style="display: inline-flex; align-items: space-evenly;" id="gym_name"></h1>
@@ -61,6 +61,26 @@
                     earum atque eligendi repudiandae quia asperiores ad adipisci non in quis ullam facere sapiente
                     voluptatum voluptate, praesentium voluptas.</p>
 
+                <div id = "show_review">
+                    <div class="container">
+                        <div id="CardGroup" class="row row-cols-auto">
+                        </div>
+                    </div>
+                    <template id="CardTemplate">
+                        <div class="card">
+                            <img class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="title">placeholder</h5>
+                                <p class="recommend">placeholder</p>
+                                <p class="experience">placeholder</p>
+                                <br>
+                                <p class="description">This card has supporting text below as a natural lead-in to additional content.
+                                </p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                
                 <div id="reviews_container" style="display: block; justify-content: center;">
                     <div class="container">
                         <br>
@@ -114,6 +134,7 @@
     <script src="./scripts/chart.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/contentcard.js"></script>
+    <script src = "./scripts/showGymReview.js"></script>
 </body>
 
 </html>
