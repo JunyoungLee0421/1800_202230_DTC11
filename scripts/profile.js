@@ -45,7 +45,7 @@ function insertName() {
             // Do something for the currently logged-in user here:
             console.log(user.uid);
             console.log(user.displayName);
-            document.querySelector('#login').innerHTML = 'Hello' + user.displayName
+            document.querySelector('#login').innerHTML = 'Hello ' + user.displayName
 
             //method #1:  insert with html only
             //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
