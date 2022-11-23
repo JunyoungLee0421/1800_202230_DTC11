@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -18,13 +24,13 @@
     <link rel="stylesheet" href="./styles/style.css">
 
     <style>
-        #content {
+        #clickables {
             display: block;
             width: 100%;
         }
 
         #profile_pic,
-        .clickables {
+        #clickables {
             display: flex;
             justify-content: center;
         }
@@ -40,7 +46,7 @@
             clear: both;
         }
 
-        .clickables ul {
+        #clickables ul {
             list-style: none;
             width: 80%;
         }
@@ -75,40 +81,45 @@
 <body>
     <nav id="navbarPlaceholder"></nav>
 
-    <div id="content">
-        <div id="profile_pic">
-            <img src="./images/images.jpg">
-        </div>
-        <hr>
-        <div id="buttons">
-            <div class="clickables">
-                <ul>
-                    <a id = "loginBtn"href="./login.html">
-                        <li id = "loginMsg">Login</li>
-                    </a>
-                    <a href="./profile_page.html">
-                        <li>Change Profile</li>
-                        </a>
-                    <a href="./FAQ.html">
-                    <li>FAQ</li>
-                    </a>
-                    <a href="./preferences.html">
-                    <li>Preferences</li>
-                    </a>
-                    <a href="./chart.html">
-                        <li>Chart (temporary)</li>
-                    </a>
-                </ul>
-            </div>
-        </div>
+    <h2 id="login"></h2>
+
+
+    <div id="profile_pic">
+        <img src="./images/images.jpg">
     </div>
+    <hr>
+
+    <div id="clickables">
+        <ul>
+            <a id="loginBtn" href="./login.html">
+                <li id="loginMsg">Login</li>
+            </a>
+            <a href="./profile_page.html">
+                <li>Change Profile</li>
+            </a>
+            <a href="./FAQ.html">
+                <li>FAQ</li>
+            </a>
+            <a href="./preferences.html">
+                <li>Preferences</li>
+            </a>
+            <a href="./chart.html">
+                <li>Chart (temporary)</li>
+            </a>
+        </ul>
+    </div>
+
+
 
 
     <nav id="footer_bar"></nav>
 
     <!-- Java script for external navbar -->
+    <script src="./scripts/firebaseAPI.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/loadPage.js"></script>
+    <script src="./scripts/profile.js"></script>
+
 
 
 </body>

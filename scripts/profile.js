@@ -1,5 +1,6 @@
 var currentUser
 
+
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -31,14 +32,32 @@ function populateInfo() {
                     }
                 })
         } else {
-            // No user is signed in.
+            window.alert('you must sign in')
             window.location.replace("./profile.html");
         }
     });
 }
 
-//call the function to run it 
-populateInfo();
+function insertName() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if a user is signed in:
+        if (user) {
+            // Do something for the currently logged-in user here:
+            console.log(user.uid);
+            console.log(user.displayName);
+            document.querySelector('#login').innerHTML = 'Hello' + user.displayName
+
+            //method #1:  insert with html only
+            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
+            //method #2:  insert using jquery
+            // $("#name-goes-here").text(user_Name); //using jquery
+
+        } else {
+            console.log('no login')
+        }
+    });
+}
+insertName();
 
 function editUserInfo() {
     console.log('works')
@@ -64,23 +83,18 @@ function saveUserInfo() {
 
     document.getElementById('personalInfoFields').disabled = true;
 }
-function insertName() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if a user is signed in:
-        if (user) {
-            // Do something for the currently logged-in user here: 
-            console.log(user.uid);
-            console.log(user.displayName);
-            document.querySelector('#login').innerHTML = user.displayName
 
-            //method #1:  insert with html only
-            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
-            //method #2:  insert using jquery
-            // $("#name-goes-here").text(user_Name); //using jquery
 
-        } else {
-            console.log('no login')
-        }
+function logout() {
+    firebase.auth().signOut().then(() => {
+    }).catch((error) => {
+        window.alert('no one is logged in!')
     });
+    localStorage.clear()
 }
-insertName();
+
+if ($('body').is('.profilePg')) {
+    populateInfo()
+}
+
+
