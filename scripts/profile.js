@@ -79,6 +79,7 @@ function saveUserInfo() {
     })
         .then(() => {
             window.alert("Your profile has been updated");
+            window.location.replace("./index.html");
         })
 
     document.getElementById('personalInfoFields').disabled = true;
