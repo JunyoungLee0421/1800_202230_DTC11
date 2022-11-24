@@ -23,8 +23,8 @@ function populate() {
                 document.querySelector('#details').innerHTML = details;
                 document.querySelector('#image').src = gymPic; //Example: NV01.jpg
                 document.querySelector('#rating').src = `./text/stars/${rate}.jpg`;
-                document.querySelector('#distance').innerHTML = distance_away;
-                document.querySelector('#price').innerHTML = price_point;
+                document.querySelector('#distance').innerHTML = `${distance_away} km`;
+                document.querySelector('#price').innerHTML = `$${price_point} /month`;
                 document.querySelector('#address').innerHTML = address;
                 document.querySelector('#city').innerHTML = city;
                 document.querySelector('#hours').innerHTML = 'Open from ' + hours;

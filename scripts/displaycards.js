@@ -20,8 +20,8 @@ function displayCards(collection) {
                 testgymCard.querySelector('.card-text').innerHTML = details;
                 testgymCard.querySelector('.card-image').src = image; 
                 testgymCard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
-                testgymCard.querySelector('.distance').innerHTML = distance_away;
-                testgymCard.querySelector('.price').innerHTML = price_point;
+                testgymCard.querySelector('.distance').innerHTML = `${distance_away} km`;
+                testgymCard.querySelector('.price').innerHTML = `$${price_point} / month`;
                 testgymCard.querySelector('#details_btn').onclick = () => setGymData(id);
                 container.appendChild(testgymCard);
             })
@@ -72,9 +72,9 @@ insertName();
 //         const city = columns[4];
 //         const gym_image = columns[5];
 //         const operating_hours = columns[6];
-//         const rating = columns[7]
-//         const distance = columns[8]
-//         const price = columns[9]
+//         const rating = columns[7];
+//         const distance = Number(columns[8]);
+//         const price = Number(columns[9]);
 
 
 //         db.collection("gym_data").add({   //write to firestore
