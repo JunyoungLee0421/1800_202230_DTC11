@@ -16,6 +16,7 @@ function populate() {
                 var operating_hours = doc.data().operating_hours;
                 var address = doc.data().address;
                 var city = doc.data().city;
+                var hours = doc.data().operating_hours;
 
                 //update title and text and image
                 document.querySelector('#gym_name').innerHTML = title;
@@ -24,6 +25,9 @@ function populate() {
                 document.querySelector('#rating').src = `./text/stars/${rate}.jpg`;
                 document.querySelector('#distance').innerHTML = distance_away;
                 document.querySelector('#price').innerHTML = price_point;
+                document.querySelector('#address').innerHTML = address;
+                document.querySelector('#city').innerHTML = city;
+                document.querySelector('#hours').innerHTML = 'Open from ' + hours;
                 document.querySelector('#name_2').innerHTML = title;
 
 
@@ -34,14 +38,13 @@ function populate() {
 populate();
 
 function writeReview() {
-    console.log('ready')
+    
     let Title = document.getElementById("gym_name").innerHTML.valueOf();
     let Description = document.getElementById("description").value;
     let reccomend = document.getElementById("reccomend").value;
     let expereince = document.getElementById("experience").value;
     var gymID = ID
-    console.log(Title, Description, reccomend, expereince, gymID);
-
+   
     // firebase.auth().onAuthStateChanged(user => {
     //     if (user) {
     //         var currentUser = db.collection("users").doc(user.uid)
@@ -50,15 +53,17 @@ function writeReview() {
     //         currentUser.get()
     //             .then(userDoc => {
     //                 var userEmail = userDoc.data().email;
-    var reviews_data = db.collection("Reviews");
 
-    reviews_data.add({
-        code: gymID,
-        title: Title,
-        description: Description,
-        recommend: reccomend,
-        experience: expereince,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    if (Description != "") {
+        var reviews_data = db.collection("Reviews");
+
+        reviews_data.add({
+            ID: gymID,
+            title: Title,
+            description: Description,
+            recommend: reccomend,
+            experience: expereince,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         // }).then(() => {
 
         //             })
@@ -67,6 +72,9 @@ function writeReview() {
         // } else {
         //     // No user is signed in.
         // }
-    })
+
+    })}else{
+        alert.window('you must enter a description!')
+}
     window.location.href = "index.html";
 }

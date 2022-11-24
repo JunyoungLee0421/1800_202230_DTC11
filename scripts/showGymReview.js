@@ -5,12 +5,12 @@ function populateReviews() {
     let gymReviewTemplate = document.getElementById("CardTemplate");
     let gymCardGroup = document.getElementById("CardGroup");
 
-    db.collection("Reviews").where("code", "==", gymID).get()
+    db.collection("Reviews").where("ID", "==", gymID).get()
         .then(allReviews => {
             reviews = allReviews.docs
             reviews.forEach(doc => {
                 console.log(doc.data())
-                var title = doc.data().title;
+                var title = doc.data().gym_name;
                 var recommend = doc.data().recommend; 
                 var experience = doc.data().experience;
                 var description = doc.data().description;
