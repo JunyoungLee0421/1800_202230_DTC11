@@ -1,8 +1,6 @@
 let ID = localStorage.getItem("gymID");
 
-
 function populate() {
-
     db.collection("gym_data").where("gymID", "==", ID).get()
         .then(snap => {
             //var i = 1;  //if you want to use commented out section

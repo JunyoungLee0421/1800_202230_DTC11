@@ -1,11 +1,25 @@
 var currentUser
+var filter_by = "price"
 
-function displayCards(collection) {
+function on_option_change() {
 
+    $("#content").empty()
+
+    var user_selection = document.getElementById("filter_options");
+    filter_by = user_selection.options[user_selection.selectedIndex].value;
+
+    displayCards('gym_data', filter_by)
+}
+
+function displayCards(collection, filter) {
+
+    console.log(filter)
     let GymCardTemplate = document.getElementById("GymCardTemplate");
     let container = document.getElementById("gyms-go-here");
 
-    db.collection(collection).get()
+    db.collection(collection)
+        .orderBy(filter, "desc")
+        .get()
         .then(allGyms => {
             allGyms.forEach(doc => {
                 var title = doc.data().gym_name;
@@ -31,7 +45,7 @@ function displayCards(collection) {
                         <div class="card-body">
                             <h5 class="card-title">${title}</h5>
                           
-                            <img class="stars" src="" alt="" style="width: 30%"></p>
+                            <img class="stars" src="./text/stars/${rate}.jpg" alt="" style="width: 30%"></p>
                             <p class="distance" style="font-size:small; color: gray; margin: 0px 0px">
                                 ${distance_away} km
                             </p>
@@ -50,7 +64,7 @@ function displayCards(collection) {
 }
 
 
-displayCards("gym_data");
+displayCards("gym_data", filter_by);
 
 function empty() { // for clearing divs
     $('#content').empty()
