@@ -1,6 +1,7 @@
 var currentUser
 
 function displayCards(collection) {
+
     let GymCardTemplate = document.getElementById("GymCardTemplate");
     let container = document.getElementById("gyms-go-here");
 
@@ -14,26 +15,52 @@ function displayCards(collection) {
                 var rate = doc.data().rating;
                 var price_point = doc.data().price;
                 var id = doc.data().gymID
-                let testgymCard = GymCardTemplate.content.cloneNode(true);
+                $('#content').append(
+                // let testgymCard = GymCardTemplate.content.cloneNode(true);
 
-                testgymCard.querySelector('.card-title').innerHTML = title;
-                testgymCard.querySelector('.card-text').innerHTML = details;
-                testgymCard.querySelector('.card-image').src = image; 
-                testgymCard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
-                testgymCard.querySelector('.distance').innerHTML = `${distance_away} km`;
-                testgymCard.querySelector('.price').innerHTML = `$${price_point} / month`;
-                testgymCard.querySelector('#details_btn').onclick = () => setGymData(id);
-                container.appendChild(testgymCard);
-            })
+                // testgymCard.querySelector('.card-title').innerHTML = title;
+                // testgymCard.querySelector('.card-text').innerHTML = details;
+                // testgymCard.querySelector('.card-image').src = image; 
+                // testgymCard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
+                // testgymCard.querySelector('.distance').innerHTML = `${distance_away} km`;
+                // testgymCard.querySelector('.price').innerHTML = `$${price_point} / month`;
+                // testgymCard.querySelector('#details_btn').onclick = () => setGymData(id);
+                // container.appendChild(testgymCard);
+                `<div class="card" style="width: 100%; border-radius: 20px; margin: 10px 0px">
+                            <img class="card-image card-img-top" src="${image}" alt="..." style="margin: 5px 0px">
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                          
+                            <img class="stars" src="" alt="" style="width: 30%"></p>
+                            <p class="distance" style="font-size:small; color: gray; margin: 0px 0px">
+                                ${distance_away} km
+                            </p>
+                            <p class="price" style="font-size:small; color: gray;">
+                                $ ${price_point} / month
+                            </p>
+                            <button onclick="setGymData(id)" id='${id}'>details</button>
+
+
+                        </div>
+                    </div>`
+             ) })
 
         })
+      
 }
+
 
 displayCards("gym_data");
 
+function empty() { // for clearing divs
+    $('#content').empty()
+}
+
 
 function setGymData(id) {
+    // console.log(id)
     localStorage.setItem('gymID', id);
+    window.location.href = './content.html'
 }
 
 function insertName() {
