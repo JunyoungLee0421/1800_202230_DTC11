@@ -1,5 +1,5 @@
 let gymID = localStorage.getItem("gymID");
-
+console.log(gymID)
 
 function populateReviews() {
     let gymReviewTemplate = document.getElementById("CardTemplate");
