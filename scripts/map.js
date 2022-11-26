@@ -9,7 +9,7 @@ function findgyms() {
             currentUser.get()
                 .then(userDoc => {
                     //get the data fields of the user
-                    var userCity = userDoc.data().country;
+                    var userCity = userDoc.data().city;
                     
                     document.querySelector('#gmap_canvas').src = `https://maps.google.com/maps?q=gyms%20in%20${userCity}&t=&z=13&ie=UTF8&iwloc=&output=embed`; 
 

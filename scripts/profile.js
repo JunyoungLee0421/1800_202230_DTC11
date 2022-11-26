@@ -14,7 +14,7 @@ function populateInfo() {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
                     var userSchool = userDoc.data().school;
-                    var userCity = userDoc.data().country;
+                    var userCity = userDoc.data().city;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -65,13 +65,11 @@ function saveUserInfo() {
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
     userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
     userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
-    userEmail = document.getElementById('EmailInput').value;       //get the value of the field with id="cityInput"
 
     currentUser.update({
         name: userName,
         school: userSchool,
-        country: userCity,
-        email: userEmail,
+        city: userCity,
     })
         .then(() => {
             window.alert("Your profile has been updated");

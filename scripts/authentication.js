@@ -14,9 +14,8 @@ var uiConfig = {
           //define a document for a user with UID as a document ID
           .doc(user.uid).set({
             name: user.displayName,
-            email: user.email,
-            country: '',
-            school: ''
+            city: 'Burnaby',
+            school: 'BCIT'
           }).then(function () {
             console.log("New user added to firestore");
             window.location.assign("index.html");
