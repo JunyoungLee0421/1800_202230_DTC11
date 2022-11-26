@@ -1,3 +1,42 @@
+// let ID = localStorage.getItem("gymID");
+
+function populate_busyHour() {
+    console.log("This is populate function")
+    var docRef = db.collection("gym_data");
+    
+    docRef.forEach(doc => {
+        console.log(doc.id)
+    })
+    
+        // .forEach(element => {
+        //     console.log(element)
+            // element.add({
+            //     busyHours : {
+            //         "Monday" : {
+            //             six_AM : 0,
+            //             eight_AM : 0,
+            //             ten_AM : 1,
+            //             twelve_PM : 3,
+            //             two_PM : 5,
+            //             four_PM : 3,
+            //             six_PM : 6,
+            //             eight_PM : 3
+            //         },
+            //         "Tuesday" : {
+            //             six_AM : 0,
+            //             eight_AM : 0,
+            //             ten_AM : 1,
+            //             twelve_PM : 3,
+            //             two_PM : 5,
+            //             four_PM : 3,
+            //             six_PM : 6,
+            //             eight_PM : 3
+            //         }
+            //     },
+            // })
+        // });
+}
+
 function writeBusyHours() {
     //define a variable for the collection you want to create in Firestore to populate data
     var hoursRef = db.collection("busyHours");
@@ -86,3 +125,4 @@ function writeBusyHours() {
         eight_PM : 5
     });
 }
+

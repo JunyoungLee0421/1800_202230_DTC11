@@ -20,6 +20,8 @@ function displayHours(selected_day) {
             let fourth = mondayDoc.data().twelve_PM;
             let fifth = mondayDoc.data().two_PM; 
             let sixth = mondayDoc.data().four_PM;
+            let seventh = mondayDoc.data().six_PM;
+            let eighth = mondayDoc.data().eight_PM;
             console.log(third);
 
             var ctx = document.getElementById('myChart').getContext('2d');
@@ -27,12 +29,12 @@ function displayHours(selected_day) {
                 // type : 'bar' = 막대차트를 의미합니다.
                 type: 'bar', 
                 data: {
-                    labels: ['6-8AM','8-10AM','10AM-12PM', '12PM-2PM', '2PM-4PM', '4PM-6PM', '6PM-8PM'],
+                    labels: ['6AM', '8AM','10AM', '12PM', '2PM', '4PM', '6PM', '8PM'],
                     datasets: [{
-                        label: 'Gym1',
+                        label: 'Busy Hours',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
-                        data: [first, second, third, fourth, fifth, sixth]
+                        data: [first, second, third, fourth, fifth, sixth, seventh, eighth]
                     }]
                 },
             });
