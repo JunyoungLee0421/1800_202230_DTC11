@@ -43,7 +43,12 @@
 
     <nav id="navbarPlaceholder"></nav>
     <h1 id="username" style="margin: 10px 10px;"></h1>
-
+    <label for="filter_options">Filter By : </label>
+    <select name="filter_options" id="filter_options" onchange = "on_option_change()">
+        <option value="price">Price</option>
+        <option value="distance">Distance</option>
+        <option value="rating">Ratings</option>
+    </select>
     <div id="content"></div>
     <!-- <div class="container">
         <div class="gym-container">

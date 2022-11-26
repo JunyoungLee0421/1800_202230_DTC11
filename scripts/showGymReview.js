@@ -7,10 +7,12 @@ function populateReviews() {
 
     db.collection("Reviews").where("ID", "==", gymID).get()
         .then(allReviews => {
+            console.log(gymID)
+            console.log(allReviews.docs)
             reviews = allReviews.docs
             reviews.forEach(doc => {
                 console.log(doc.data())
-                var title = doc.data().gym_name;
+                var title = doc.data().title;
                 var recommend = doc.data().recommend; 
                 var experience = doc.data().experience;
                 var description = doc.data().description;
@@ -24,4 +26,5 @@ function populateReviews() {
             });
         })
 }
+
 populateReviews();

@@ -1,8 +1,7 @@
 let ID = localStorage.getItem("gymID");
 
-
 function populate() {
-
+    console.log(ID)
     db.collection("gym_data").where("gymID", "==", ID).get()
         .then(snap => {
             //var i = 1;  //if you want to use commented out section
@@ -38,43 +37,21 @@ function populate() {
 populate();
 
 function writeReview() {
-    
     let Title = document.getElementById("gym_name").innerHTML.valueOf();
     let Description = document.getElementById("description").value;
     let reccomend = document.getElementById("reccomend").value;
     let expereince = document.getElementById("experience").value;
-    var gymID = ID
-   
-    // firebase.auth().onAuthStateChanged(user => {
-    //     if (user) {
-    //         var currentUser = db.collection("users").doc(user.uid)
-    //         var userID = user.uid;
-    //         //get the document for current user.
-    //         currentUser.get()
-    //             .then(userDoc => {
-    //                 var userEmail = userDoc.data().email;
 
-    if (Description != "") {
-        var reviews_data = db.collection("Reviews");
-
-        reviews_data.add({
-            ID: gymID,
-            title: Title,
-            description: Description,
-            recommend: reccomend,
-            experience: expereince,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        // }).then(() => {
-
-        //             })
-        //         })
-
-        // } else {
-        //     // No user is signed in.
-        // }
-
-    })}else{
-        alert.window('you must enter a description!')
-}
-    window.location.href = "index.html";
+    db.collection("Reviews").add({
+        ID: ID,
+        title: Title,
+        description: Description,
+        recommend: reccomend,
+        experience: expereince,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    }).then( function () {
+        window.location.href = "content.html";
+    })
+    // } else {
+    //     alert('you must enter a description!')
 }
