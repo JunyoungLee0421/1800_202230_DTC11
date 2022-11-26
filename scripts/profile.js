@@ -15,7 +15,6 @@ function populateInfo() {
                     var userName = userDoc.data().name;
                     var userSchool = userDoc.data().school;
                     var userCity = userDoc.data().country;
-                    var userEmail = userDoc.data().email;
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -23,9 +22,6 @@ function populateInfo() {
                     }
                     if (userSchool != null) {
                         document.getElementById("schoolInput").value = userSchool;
-                    }
-                    if (userEmail != null) {
-                        document.getElementById("EmailInput").value = userEmail;
                     }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
