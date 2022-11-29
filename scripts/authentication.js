@@ -1,23 +1,26 @@
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+
+//---------------------------------------
+// Add new user to the database
+//
+//precondition: no user is logged in
+//postcondition: adds new user document to database
+//----------------------------------------
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      var user = authResult.user; //get the user object info
+      var user = authResult.user;                                    //get the user object info
       if (authResult.additionalUserInfo.isNewUser) {
         // create a collection with name "users"
         db.collection("users")
-          //define a document for a user with UID as a document ID
-          .doc(user.uid).set({
+          
+          .doc(user.uid).set({                                       // Write
             name: user.displayName,
             city: 'Burnaby',
             school: 'BCIT'
           }).then(function () {
-            console.log("New user added to firestore");
             window.location.assign("index.html");
           })
           .catch(function (error) {
@@ -40,13 +43,7 @@ var uiConfig = {
   signInFlow: 'popup',
   signInSuccessUrl: 'profile_page.html',
   signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
   tosUrl: '<your-tos-url>',
@@ -54,8 +51,12 @@ var uiConfig = {
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 
+//---------------------------------------
+// change the login button in the profile page
+//
+//----------------------------------------
 function changeButton(user) {
-  // change the login button in the profile page
+  
   localStorage.setItem ('user', user);
 }
 

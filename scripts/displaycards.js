@@ -1,6 +1,7 @@
 var currentUser
 var filter_by = "price"
 
+
 function on_option_change() {
 
     $("#content").empty()
@@ -11,6 +12,13 @@ function on_option_change() {
     displayCards('gym_data', filter_by)
 }
 
+//---------------------------------------------
+// Reads from database and populates index.html with relevant database information
+//
+//param collection: name of collection in database
+//param filter: filter to sort by
+//return: the information of each doc in the collection
+//---------------------------------------------
 function displayCards(collection, filter) {
 
     console.log(filter)
@@ -18,7 +26,7 @@ function displayCards(collection, filter) {
     let container = document.getElementById("gyms-go-here");
 
     db.collection(collection)
-        .orderBy(filter, "desc")
+        .orderBy(filter, "desc")                                           // read from database
         .get()
         .then(allGyms => {
             allGyms.forEach(doc => {
@@ -30,16 +38,6 @@ function displayCards(collection, filter) {
                 var price_point = doc.data().price;
                 var id = doc.data().gymID
                 $('#content').append(
-                // let testgymCard = GymCardTemplate.content.cloneNode(true);
-
-                // testgymCard.querySelector('.card-title').innerHTML = title;
-                // testgymCard.querySelector('.card-text').innerHTML = details;
-                // testgymCard.querySelector('.card-image').src = image; 
-                // testgymCard.querySelector('.stars').src = `./text/stars/${rate}.jpg`;
-                // testgymCard.querySelector('.distance').innerHTML = `${distance_away} km`;
-                // testgymCard.querySelector('.price').innerHTML = `$${price_point} / month`;
-                // testgymCard.querySelector('#details_btn').onclick = () => setGymData(id);
-                // container.appendChild(testgymCard);
                 `<div class="card" style="width: 100%; border-radius: 20px; margin: 10px 0px">
                             <img class="card-image card-img-top" src="${image}" alt="..." style="margin: 5px 0px">
                         <div class="card-body">
@@ -62,21 +60,40 @@ function displayCards(collection, filter) {
         })
       
 }
-
-
 displayCards("gym_data", filter_by);
 
-function empty() { // for clearing divs
+//---------------------------------------------
+// function to empty content div
+//
+// precondition: user selects new filter
+// postcondition: content div is emptied
+//---------------------------------------------
+function empty() { 
     $('#content').empty()
 }
 
-
+//---------------------------------------------
+// Grabs ID of specific gym card and set it to local storage
+//
+//param id: id of gym card
+//postcondition: id of gym card is set to local storage
+//return: none
+//---------------------------------------------
 function setGymData(id) {
     // console.log(id)
     localStorage.setItem('gymID', id);
     window.location.href = './content.html'
 }
 
+
+//---------------------------------------------
+// Displays user name to screen if user is logged in
+//
+//param: none
+//precondition: user is logged in
+//postcondition: user name is displayed to screen
+//return: none
+//---------------------------------------------
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
@@ -97,38 +114,3 @@ function insertName() {
     });
 }
 insertName();
-
-// async function getCSVdata() {
-//     // console.log("hello")
-//     const response = await fetch('/data.csv'); //send get request must be in same folder as html it is being called from
-//     const data = await response.text();      //get file response
-//     const list = data.split('\n').slice(1);  //get line
-//     list.forEach(row => {
-//         // [gymID, gym name, description, address, city, image, operating hours, rating]
-//         const columns = row.split(',');
-//         const gymID = columns[0];
-//         const gym_name = columns[1];
-//         const description = columns[2];
-//         const address = columns[3];
-//         const city = columns[4];
-//         const gym_image = columns[5];
-//         const operating_hours = columns[6];
-//         const rating = columns[7];
-//         const distance = Number(columns[8]);
-//         const price = Number(columns[9]);
-
-
-//         db.collection("gym_data").add({   //write to firestore
-//             gymID: gymID,
-//             gym_name: gym_name,
-//             description: description,
-//             address: address,
-//             city: city,
-//             gym_image: gym_image,
-//             operating_hours: operating_hours,
-//             rating: rating,
-//             distance: distance,
-//             price: price,
-    
-//         })
-//     })}

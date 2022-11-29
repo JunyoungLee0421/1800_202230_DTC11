@@ -1,17 +1,22 @@
 let ID = localStorage.getItem("gymID");
 
+//---------------------------------------
+// Dynamically populate content.html with relevant database information
+//
+//precondition: content.html is loaded
+//postcondition: will populate content.html with relevant database information
+//----------------------------------------
 function populate() {
     console.log(ID)
-    db.collection("gym_data").where("gymID", "==", ID).get()
+    db.collection("gym_data").where("gymID", "==", ID).get()               // Read from database
         .then(snap => {
-            //var i = 1;  //if you want to use commented out section
-            snap.forEach(doc => { //iterate thru each doc
-                var title = doc.data().gym_name;        // get value of the "name" key
-                var details = doc.data().description;   // get value of the "description" key
-                var gymPic = doc.data().gym_image;    //get unique ID to each hike to be used for fetching right image
-                var distance_away = doc.data().distance;    //get value of distance
-                var rate = doc.data().rating;    //get rating for each gym
-                var price_point = doc.data().price;    //get price for each gym
+            snap.forEach(doc => {                                           //iterate thru each doc
+                var title = doc.data().gym_name;        
+                var details = doc.data().description;   
+                var gymPic = doc.data().gym_image;   
+                var distance_away = doc.data().distance;  
+                var rate = doc.data().rating;   
+                var price_point = doc.data().price;    
                 var operating_hours = doc.data().operating_hours;
                 var address = doc.data().address;
                 var city = doc.data().city;
@@ -36,13 +41,19 @@ function populate() {
 }
 populate();
 
+// ---------------------------------------
+// Take user input and add to database
+//
+//precondition: user review button is clicked
+//postcondition: user review is added to database
+// ----------------------------------------
 function writeReview() {
     let Title = document.getElementById("gym_name").innerHTML.valueOf();
     let Description = document.getElementById("description").value;
     let reccomend = document.getElementById("reccomend").value;
     let expereince = document.getElementById("experience").value;
 
-    db.collection("Reviews").add({
+    db.collection("Reviews").add({                                        // Write to database (create)
         ID: ID,
         title: Title,
         description: Description,
@@ -52,6 +63,37 @@ function writeReview() {
     }).then( function () {
         window.location.href = "content.html";
     })
-    // } else {
-    //     alert('you must enter a description!')
 }
+
+//--------------------------------------------------------------
+// populate content.html with reviews from review database
+//
+//precondition: content.html is loaded
+//postcondition: will populate content.html with reviews from review database
+//--------------------------------------------------------------
+
+function populateReviews() {
+    let gymReviewTemplate = document.getElementById("CardTemplate");
+    let gymCardGroup = document.getElementById("CardGroup");
+
+    db.collection("Reviews").where("ID", "==", ID).get()
+        .then(allReviews => {
+            reviews = allReviews.docs
+            reviews.forEach(doc => {
+                console.log(doc.data())
+                var title = doc.data().title;
+                var recommend = doc.data().recommend;
+                var experience = doc.data().experience;
+                var description = doc.data().description;
+
+                let reviewCard = gymReviewTemplate.content.cloneNode(true);
+                reviewCard.querySelector('.title').innerHTML = title;
+                reviewCard.querySelector('.recommend').innerHTML = `recommend: ${recommend}`;
+                reviewCard.querySelector('.experience').innerHTML = `experience: ${experience}`;
+                reviewCard.querySelector('.description').innerHTML = `Description: ${description}`;
+                gymCardGroup.appendChild(reviewCard);
+            });
+        })
+}
+
+populateReviews();

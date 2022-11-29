@@ -1,13 +1,18 @@
 var currentUser
 
-
+//---------------------------------
+// if a user is logged in, display their name, location, and school
+//
+//precondition: user is logged in
+//postcondition: user's name, location, and school are displayed
+//---------------------------------
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").doc(user.uid)                      // Read
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
@@ -34,20 +39,19 @@ function populateInfo() {
     });
 }
 
+
+//---------------------------------
+// if a user is logged in display their name
+//
+//
+//precondition: user is logged in
+//postcondition: user's name is displayed
+//---------------------------------
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
         if (user) {
-            // Do something for the currently logged-in user here:
-            console.log(user.uid);
-            console.log(user.displayName);
             document.querySelector('#login').innerHTML = 'Hello ' + user.displayName
-
-            //method #1:  insert with html only
-            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
-            //method #2:  insert using jquery
-            // $("#name-goes-here").text(user_Name); //using jquery
-
         } else {
             console.log('no login')
         }
@@ -55,18 +59,33 @@ function insertName() {
 }
 insertName();
 
+
+//---------------------------------
+//enables the user to edit their profile
+//
+//
+//precondition: user is logged in
+//precondition: edit button is clicked
+//return: boolean True
+//---------------------------------
 function editUserInfo() {
-    console.log('works')
     document.getElementById('personalInfoFields').disabled = false;
 }
 
+//--------------------------------
+//updates the user's profile information to database
+//
+//
+//precondition: user is logged in
+//postcondition: user's profile information is updated
+//--------------------------------
 function saveUserInfo() {
     console.log('save')
-    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
-    userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
+    userName = document.getElementById('nameInput').value;       
+    userSchool = document.getElementById('schoolInput').value;   
+    userCity = document.getElementById('cityInput').value;       
 
-    currentUser.update({
+    currentUser.update({                               // Update
         name: userName,
         school: userSchool,
         city: userCity,
@@ -79,7 +98,13 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true;
 }
 
-
+//---------------------------------
+//logs the user out
+//
+//
+//precondition: user is logged in
+//postcondition: user is logged out
+//---------------------------------
 function logout() {
     firebase.auth().signOut().then(() => {
     }).catch((error) => {
@@ -88,6 +113,12 @@ function logout() {
     localStorage.clear()
 }
 
+//---------------------------------
+//guard to ensure current page is profile_page.html
+//
+//param: None
+//return: None
+//---------------------------------
 if ($('body').is('.profilePg')) {
     populateInfo()
 }

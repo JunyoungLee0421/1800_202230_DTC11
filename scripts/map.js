@@ -1,10 +1,18 @@
+//---------------------------------
+//If user is logged in, displays gyms in their city
+//
+//param: None
+//precondition: none
+//postcondition: if user is logged in, gyms in their city are displayed
+//return: None
+//---------------------------------
 function findgyms() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").doc(user.uid)                        // Read
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
