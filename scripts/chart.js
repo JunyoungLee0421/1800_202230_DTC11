@@ -1,14 +1,24 @@
 let day = "Monday"
 
+//---------------------------------------
+// Gets selected option from html and display busy hour based on user's selection
+//
+// precondition: default day is set as monday
+// post-condition: passes selected day to displayHours(day) function
+//----------------------------------------
+
 function on_option_change() {
     var user_selection = document.getElementById("filter_options");
     selected_day = user_selection.options[user_selection.selectedIndex].value;
     displayHours(selected_day)
 }
 
+//---------------------------------------
+// Get busy hour data from Database and display in content.html as a chart
+//----------------------------------------
 function displayHours(selected_day) {
     console.log(selected_day)
-    db.collection("busyHours").doc(selected_day)
+    db.collection("busyHours").doc(selected_day) // Read from Database (Read)
         .onSnapshot(mondayDoc => {
             console.log(mondayDoc.data());
             console.log(mondayDoc.data().code);
@@ -26,7 +36,6 @@ function displayHours(selected_day) {
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, {
-                // type : 'bar' = 막대차트를 의미합니다.
                 type: 'bar', 
                 data: {
                     labels: ['6AM', '8AM','10AM', '12PM', '2PM', '4PM', '6PM', '8PM'],

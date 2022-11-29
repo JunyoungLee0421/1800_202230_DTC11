@@ -68,15 +68,15 @@ function writeReview() {
 //--------------------------------------------------------------
 // populate content.html with reviews from review database
 //
-//precondition: content.html is loaded
-//postcondition: will populate content.html with reviews from review database
+// precondition: content.html is loaded
+// postcondition: will populate content.html with reviews from review database
 //--------------------------------------------------------------
 
 function populateReviews() {
     let gymReviewTemplate = document.getElementById("CardTemplate");
     let gymCardGroup = document.getElementById("CardGroup");
 
-    db.collection("Reviews").where("ID", "==", ID).get()
+    db.collection("Reviews").where("ID", "==", ID).get() //Read from Database (Read)
         .then(allReviews => {
             reviews = allReviews.docs
             reviews.forEach(doc => {

@@ -2,6 +2,9 @@ var currentUser
 var filter_by = "price"
 
 
+//---------------------------------------
+// When user changes sort option, get the value from html and pass it to displayCards() function
+//----------------------------------------
 function on_option_change() {
 
     $("#content").empty()

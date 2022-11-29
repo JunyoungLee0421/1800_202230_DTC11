@@ -11,12 +11,12 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-      var user = authResult.user;                                    //get the user object info
+      var user = authResult.user;                         //get the user object info
       if (authResult.additionalUserInfo.isNewUser) {
         // create a collection with name "users"
         db.collection("users")
           
-          .doc(user.uid).set({                                       // Write
+          .doc(user.uid).set({                            // Write to Database
             name: user.displayName,
             city: 'Burnaby',
             school: 'BCIT'
