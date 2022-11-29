@@ -6,7 +6,6 @@ let day = "Monday"
 // precondition: default day is set as monday
 // post-condition: passes selected day to displayHours(day) function
 //----------------------------------------
-
 function on_option_change() {
     var user_selection = document.getElementById("filter_options");
     selected_day = user_selection.options[user_selection.selectedIndex].value;
@@ -20,10 +19,6 @@ function displayHours(selected_day) {
     console.log(selected_day)
     db.collection("busyHours").doc(selected_day) // Read from Database (Read)
         .onSnapshot(mondayDoc => {
-            console.log(mondayDoc.data());
-            console.log(mondayDoc.data().code);
-            console.log(mondayDoc.data().six_AM);
-            
             let first = mondayDoc.data().six_AM;
             let second = mondayDoc.data().eight_AM;
             let third = mondayDoc.data().ten_AM;
@@ -32,7 +27,6 @@ function displayHours(selected_day) {
             let sixth = mondayDoc.data().four_PM;
             let seventh = mondayDoc.data().six_PM;
             let eighth = mondayDoc.data().eight_PM;
-            console.log(third);
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, {
@@ -50,4 +44,5 @@ function displayHours(selected_day) {
         })
 }
 
+// display on initialization
 displayHours(day);

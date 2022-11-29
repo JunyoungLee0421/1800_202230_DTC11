@@ -1,6 +1,5 @@
 //-------------------------------
 //
-//
 //precondition: pahe is loaded
 //postcondition: will load navbar and footer
 //-------------------------------

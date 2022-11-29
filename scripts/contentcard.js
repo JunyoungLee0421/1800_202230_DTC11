@@ -33,11 +33,8 @@ function populate() {
                 document.querySelector('#city').innerHTML = city;
                 document.querySelector('#hours').innerHTML = 'Open from ' + hours;
                 document.querySelector('#name_2').innerHTML = title;
-
-
             })
         })
-
 }
 populate();
 

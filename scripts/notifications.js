@@ -1,7 +1,6 @@
 //------------------------------------
 // Dynamincally populate notifications.html with relevant database information
 //
-//
 //param collection: name of collection to display
 //return: the data from each document in the collection
 //------------------------------------
