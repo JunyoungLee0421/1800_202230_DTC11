@@ -1,12 +1,10 @@
 var currentUser
 var filter_by = "price"
 
-
 //---------------------------------------
 // When user changes sort option, get the value from html and pass it to displayCards() function
 //----------------------------------------
 function on_option_change() {
-
     $("#content").empty()
 
     var user_selection = document.getElementById("filter_options");
@@ -17,19 +15,15 @@ function on_option_change() {
 
 //---------------------------------------------
 // Reads from database and populates index.html with relevant database information
-//
+// if the filter option is rating, the items will be sorted in descending order
 //param collection: name of collection in database
 //param filter: filter to sort by
 //return: the information of each doc in the collection
 //---------------------------------------------
 function displayCards(collection, filter) {
-
-    console.log(filter)
-    let GymCardTemplate = document.getElementById("GymCardTemplate");
-    let container = document.getElementById("gyms-go-here");
-
-    db.collection(collection)
-        .orderBy(filter, "desc")                                           // read from database
+    if (filter == "rating") {
+        db.collection(collection)
+        .orderBy(filter, "desc")    // read from database
         .get()
         .then(allGyms => {
             allGyms.forEach(doc => {
@@ -54,15 +48,45 @@ function displayCards(collection, filter) {
                                 $ ${price_point} / month
                             </p>
                             <button onclick="setGymData(id)" id='${id}'>details</button>
-
-
                         </div>
                     </div>`
              ) })
-
         })
-      
+    } else {
+        db.collection(collection)
+        .orderBy(filter)    // read from database
+        .get()
+        .then(allGyms => {
+            allGyms.forEach(doc => {
+                var title = doc.data().gym_name;
+                var details = doc.data().description;
+                var image = doc.data().gym_image;
+                var distance_away = doc.data().distance;
+                var rate = doc.data().rating;
+                var price_point = doc.data().price;
+                var id = doc.data().gymID
+                $('#content').append(
+                `<div class="card" style="width: 100%; border-radius: 20px; margin: 10px 0px">
+                            <img class="card-image card-img-top" src="${image}" alt="..." style="margin: 5px 0px">
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                          
+                            <img class="stars" src="./text/stars/${rate}.jpg" alt="" style="width: 30%"></p>
+                            <p class="distance" style="font-size:small; color: gray; margin: 0px 0px">
+                                ${distance_away} km
+                            </p>
+                            <p class="price" style="font-size:small; color: gray;">
+                                $ ${price_point} / month
+                            </p>
+                            <button onclick="setGymData(id)" id='${id}'>details</button>
+                        </div>
+                    </div>`
+             ) })
+        })
+    }
 }
+
+//call the function when initialization
 displayCards("gym_data", filter_by);
 
 //---------------------------------------------
@@ -88,7 +112,6 @@ function setGymData(id) {
     window.location.href = './content.html'
 }
 
-
 //---------------------------------------------
 // Displays user name to screen if user is logged in
 //
@@ -110,7 +133,6 @@ function insertName() {
             //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
             //method #2:  insert using jquery
             // $("#name-goes-here").text(user_Name); //using jquery
-
         } else {
             document.querySelector('#username').innerHTML = null
         }
