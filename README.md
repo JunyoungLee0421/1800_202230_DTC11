@@ -1,26 +1,34 @@
-## My Web Application (Add your Title here)
+## GYM.Lee
 
-- [My Web Application (Add your Title here)](#my-web-application-add-your-title-here)
+- [My Web Application GYM.Lee](#GYM.Lee)
 - [General Info](#general-info)
 - [Technologies](#technologies)
 - [Content](#content)
+- [Reference] (#reference)
 
 ## General Info
-This browser based web application to ...
-* My name is Tim and I am excited to start the project.
+This browser based web application to help students to find a gym that fits their needs. 
 
-* Hi my name is Aron and this it my line
+* My name is Tim and I am excited to start the project.
+* Hi my name is Aron and this is my line
 * Hi my name is James and this is my line
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* Python (Beautiful Soup : web scraping)
 	
 ## Content
 Content of the project folder:
 
+## Reference
+* Chart.js for our chart function
+https://github.com/chartjs/Chart.js
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+```
 
 ```
  Top level of project folder: 
