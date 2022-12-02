@@ -75,7 +75,9 @@ It has the following subfolders and files:
 ├── styles                   # Folder for styles
     /styles.css                
 
-Firebase hosting files: 
+Firebase hosting files:
+├─.firebase
+    /hosting..cache
 ├── .firebase.json
 ├── .firestore.indexes.json
 ├─storage.rule
