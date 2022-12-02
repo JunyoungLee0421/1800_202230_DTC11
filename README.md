@@ -41,13 +41,23 @@ https://www.embedgooglemap.net
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what 
 users see when you come to url
-├─
+├─ 404.html
+├─chart.html
+├─content.html
+├─FAQ.html
+├─login.html
+├─logout.html
+├─map.html
+├─notification.html
+├─preferences.html
+├─profile_page.html
+├─profile.html
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-   /images,jpg
+   /images.jpg
    /logoipsum-281.svg           
 ├── scripts                  # Folder for scripts
     /authentication.js
@@ -68,6 +78,8 @@ It has the following subfolders and files:
 Firebase hosting files: 
 ├── .firebase.json
 ├── .firestore.indexes.json
+├─storage.rule
+├─storage.rules
 
 
 ```
